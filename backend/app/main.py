@@ -90,13 +90,25 @@ def seed_database():
         # Initialize schema
         Base.metadata.create_all(bind=engine)
         
-        # Load transactions.json
-        json_path = "transactions.json"
-        if not os.path.exists(json_path):
-            json_path = os.path.join(os.path.dirname(__file__), "..", "..", "transactions.json")
+        # Load transactions.json - try multiple paths
+        possible_paths = [
+            "transactions.json",
+            os.path.join(os.path.dirname(__file__), "..", "..", "transactions.json"),
+            "/opt/render/project/src/transactions.json",
+            "/../transactions.json"
+        ]
         
-        if not os.path.exists(json_path):
-            return {"status": "error", "message": "transactions.json not found"}
+        json_path = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                json_path = path
+                break
+        
+        if not json_path:
+            return {
+                "status": "error", 
+                "message": f"transactions.json not found in any of these locations: {possible_paths}"
+            }
         
         with open(json_path, "r", encoding="utf-8") as f:
             raw_data = json.load(f)
