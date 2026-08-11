@@ -1,9 +1,9 @@
 from typing import List
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from backend.app.core.db import get_db
-from backend.app.models.models import Category
-from backend.app.schemas.schemas import CategoryOut
+from app.core.db import get_db
+from app.models.models import Category
+from app.schemas.schemas import CategoryOut
 
 router = APIRouter(prefix="/api/categories", tags=["categories"])
 

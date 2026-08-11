@@ -3,8 +3,8 @@ from typing import Generator
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy.pool import StaticPool
-from backend.app.core.config import settings
-from backend.app.models.models import Base
+from app.core.config import settings
+from app.models.models import Base
 
 logger = logging.getLogger("digital_alpha.db")
 
