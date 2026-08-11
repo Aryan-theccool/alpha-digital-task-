@@ -6,9 +6,9 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from sqlalchemy import desc
 
-from backend.app.core.db import get_db
-from backend.app.models.models import Wallet, Reward, Redemption
-from backend.app.schemas.schemas import (
+from app.core.db import get_db
+from app.models.models import Wallet, Reward, Redemption
+from app.schemas.schemas import (
     WalletOut,
     RewardOut,
     RedeemRequest,

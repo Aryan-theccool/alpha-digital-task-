@@ -7,9 +7,9 @@ from fastapi import APIRouter, Depends, Query, HTTPException, status, Response
 from sqlalchemy.orm import Session
 from sqlalchemy import func, or_, and_, desc, asc
 
-from backend.app.core.db import get_db
-from backend.app.models.models import Transaction, Category
-from backend.app.schemas.schemas import (
+from app.core.db import get_db
+from app.models.models import Transaction, Category
+from app.schemas.schemas import (
     TransactionsResponse,
     TransactionOut,
     TransactionPaginationMeta,
