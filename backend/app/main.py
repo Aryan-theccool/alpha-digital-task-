@@ -3,9 +3,9 @@ from fastapi import FastAPI, Request, status, Response
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
 
-from backend.app.core.config import settings
-from backend.app.core.db import init_db
-from backend.app.routers import transactions, analytics, rewards, categories
+from app.core.config import settings
+from app.core.db import init_db
+from app.routers import transactions, analytics, rewards, categories
 
 logging.basicConfig(
     level=logging.INFO if not settings.DEBUG else logging.DEBUG,
